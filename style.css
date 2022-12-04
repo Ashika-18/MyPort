@@ -1,0 +1,580 @@
+/*
+Theme Name: My-Portforio
+Author: Ashika
+version: 1.0.0
+*/
+@charset "UTF-8";
+
+body {
+  margin:0;
+  padding: 0;
+  font-family: 'Noto Serif JP', serif;
+  background-color: rgb(227, 234, 240);
+}
+
+img {
+    max-width: 100%;
+}
+/* top画像 */
+.top-pc {
+  width: auto;
+  height: 500px;
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+/* about */
+article {
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+}
+
+article h1 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+    color: rgb(7, 201, 244);
+}
+
+article img {
+    width: 500px;
+    height: 300px;
+    border-radius: 2%;
+    margin-top: 50px;
+}
+
+#about {
+    display: block;
+    margin-left: 20px;
+    margin-top: 70px;
+}
+
+#news h2 {
+  font-size: 1.5rem;
+  text-align: center;
+  color: rgb(7, 201, 244);
+}
+
+#work {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 30px;
+}
+
+#work img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+
+.work-h3 {
+  font-size: 1.5rem;
+  text-align: center;
+  margin-bottom: 30px;
+  color: rgb(7, 201, 244);
+}
+
+#work p {
+  margin-left: 55px;
+}
+
+/* ここから下がハンバーガーメニューに関するCSS */
+.nav {
+  padding-top: 20px;
+  position: fixed;
+}
+/* チェックボックスを非表示にする */
+.drawer_hidden {
+  display: none;
+}
+
+/* ハンバーガーアイコンの設置スペース */
+.drawer_open {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  left: 20px;
+  z-index: 100;/* 重なり順を一番上にする */
+  cursor: pointer;
+}
+
+/* ハンバーガーメニューのアイコン */
+.drawer_open span,
+.drawer_open span:before,
+.drawer_open span:after {
+  content: '';
+  display: block;
+  height: 3px;
+  width: 25px;
+  border-radius: 3px;
+  background: rgb(234, 230, 230);
+  transition: 0.5s;
+  position: absolute;
+}
+
+/* 三本線の一番上の棒の位置調整 */
+.drawer_open span:before {
+  bottom: 8px;
+}
+
+/* 三本線の一番下の棒の位置調整 */
+.drawer_open span:after {
+  top: 8px;
+}
+
+/* アイコンがクリックされたら真ん中の線を透明にする */
+#drawer_input:checked ~ .drawer_open span {
+  background: rgba(255, 255, 255, 0);
+}
+
+/* アイコンがクリックされたらアイコンが×印になように上下の線を回転 */
+#drawer_input:checked ~ .drawer_open span::before {
+  bottom: 0;
+  transform: rotate(45deg);
+}
+
+#drawer_input:checked ~ .drawer_open span::after {
+  top: 0;
+  transform: rotate(-45deg);
+}
+  
+/* メニューのデザイン*/
+.nav_content {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  bottom: 100%;
+  left: 0%; /* メニューを画面の外に飛ばす */
+  z-index: 99;
+  background: rgb(110, 110, 110);
+  transition: .5s;
+  text-align: center;
+  padding-top: 20px;
+}
+
+/* メニュー黒ポチを消す */
+.nav_list {
+  list-style: none;
+}
+
+.nav_item {
+  margin-bottom: 30px;
+}
+
+.nav_item a {
+  color: #fff;
+  text-decoration: none;
+}
+
+/* アイコンがクリックされたらメニューを表示 */
+#drawer_input:checked ~ .nav_content {
+  bottom: 0;/* メニューを画面に入れる */
+  
+}
+/* ここまでハンバーガーメニュー */
+/* 投稿文のCSS */
+.post-top {
+    display: block;
+    width: 100%;
+    height: 1px;
+    color: rgb(31, 23, 23);
+  }
+  
+  .post-bottom {
+    border-width: 0 0 8px;
+    border-style: solid;
+    border-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2 1"><circle fill="hsla(0, 0%, 65%, 1.0)" cx="1" cy="0.5" r="0.5"/></svg>') 0 0 100% repeat;
+     width: 216px;
+     margin: auto;
+  }
+  
+  .top_post_sub {
+    margin-top: 30px;
+    color: rgb(14, 3, 63);
+    white-space: nowrap; /* 折り返さないようにする(1行にする) */
+    overflow: hidden; /* 表示領域を超えたら表示しない */
+    text-overflow: ellipsis; /* 表示領域を超えたら3点リーダにする */
+    -webkit-text-overflow: ellipsis; /* FireFox対応 */
+    -o-text-overflow: ellipsis;  /* Opera対応 */
+  }
+  
+  .post_pc {
+    background-size: cover;
+    margin-bottom: 30px;
+    margin-left: 20px;
+  }
+  
+  .my-4 {
+    border: 2px;
+  }
+  
+  .post-preview {
+    flex-direction: column;
+    border-top: #222;
+    border-bottom: #222;
+    text-align: center;
+    margin-top: 30px;
+  }
+
+  .top_post_title {
+    color: aliceblue;
+  }
+  
+  .post-preview a {
+    font-size: 1rem;
+  }
+  
+  .post-preview h2 {
+    background-color: rgb(27, 108, 126);
+    display: inline;
+    text-align: center;
+    padding: 0 20px 5px;
+    border-radius: 5px;
+  }
+  
+  .subheading {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .post-title {
+    font-size: 1rem;
+    margin-left: 20px;
+    margin-bottom: 10px;
+    color: grey;
+  }
+  
+  .post-subtitle {
+    margin-left: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .post-meta {
+    font-size: 1rem;
+    text-align: center;
+    margin-bottom: 5px;
+    color: #11293e;
+  
+  }
+  
+  #reply-title {
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .logged-in-as {
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .comment {
+    margin-top: 20px;
+  }
+  
+  .comment-form-comment {
+    margin-bottom: 20px;
+  }
+  
+  .comment-form-comment p {
+    text-align: center;
+  }
+  
+  #submit {
+    margin-bottom: 10px;
+  }
+  
+  .form-submit {
+    text-align: center;
+    background-color: rgb(7, 201, 244);
+    color: aliceblue;
+    display: inline;
+    border-radius: 5px;
+    padding: 5px 5px;
+  }
+  
+  .post_link {
+    font-size: 1rem;
+    text-align: center;
+    margin-top: 40px;
+  }
+  
+  .post a {
+    text-align: center;
+  }
+  
+  .post h2 {
+    font-size: 1.5rem;
+  }
+  
+  .btn-primary {
+    font-size: 1rem;
+    padding: 10px;
+    color: aliceblue;
+    background-color: #2a2d2f;
+    border-radius: 5px;
+    margin-bottom: 20px;
+  }
+  
+  .btn {
+    width: 1em;
+    height: 0.5em;
+  }
+  
+  /* single投稿ページ */
+  .home {
+    color: antiquewhite;
+  }
+  
+  .post-heading {
+    padding-top: 100px;
+    text-align: center;
+  }
+  
+  .post-heading h1 {
+    margin-bottom: 50px;
+    color: rgb(6, 14, 99);
+    font-size: 1.75rem;
+  }
+  
+  .masthead {
+    height: 300px;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+  }
+  
+  .content {
+  font-size: 1rem;
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  }
+  
+  #commentform {
+    text-align: center;
+  }
+  
+  #comment {
+    border-radius: 10px;
+    border: solid 1px rgb(75, 73, 73);
+  }
+
+  .vcard img {
+    width: 50px;
+    height: 50px;
+  }
+  
+
+
+  .cm-form li {
+    margin-left: 20px;
+  }
+
+  /* 投稿文ここまで */
+
+  /* 問合せフォーム */
+.contact {
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  .contact-home {
+    margin-left: 20px;
+  }
+  
+  .contact h4 {
+    display: inline;
+    border-radius: 5px;
+    background-color: #137287;
+    padding: 10px 20px;
+    margin-right: 400px;
+  }
+  
+  .formrun {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  #form-top {
+    display: block;
+    margin-top: 30px;
+  }
+  
+  .formrun style {
+    border-radius: 5px;
+  }
+  
+  
+  #form {
+    border-top: 1px solid rgb(117, 109, 109);
+    padding-top: 24px;
+    padding-bottom: 24px;
+    width: 60%;
+    display: inline-block;
+    margin-top: 10px;
+  }
+  
+  .tag {
+    justify-content: left;
+  }
+  
+  #name {
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    margin-left: 40px;
+    margin-top: 20px;
+    padding-left: 1em;
+    padding-right: 1em;
+    height: 48px;
+    flex: 1;
+    width: 100%;
+    max-width: 410px;
+    background: #eaedf2;
+    font-size: 1rem;
+  }
+  
+  #email {
+    margin-top: 20px;
+  }
+  
+  .name {
+    margin-right: 70px;
+  }
+  
+  .question {
+    margin-right: 20px;
+  }
+  
+  .wrapper {
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    margin-left: 40px;
+    padding-left: 1em;
+    padding-right: 1em;
+    height: 48px;
+    flex: 1;
+    width: 100%;
+    max-width: 410px;
+    background: #eaedf2;
+    font-size: 1rem;
+    align-items: center;
+  }
+  
+  #text {
+    padding-top: 13px;
+    margin-top: 20px;
+  }
+  
+  .check {
+    margin-left: 20px;
+  }
+  
+  .must {
+    border-radius: 6px;
+    margin-right: 8px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    width: 48px;
+    display: inline-block;
+    text-align: center;
+    background: #5bc8ac;
+    color: #fff;
+    font-size: 1rem;
+  }
+  
+  .btn {
+    width: 120px;
+    text-align: center;
+    border-radius: 6px;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 30px;
+    padding-top: 10px;
+    padding-bottom: 30px;
+    background: #5bc8ac;
+    color: #fff;
+    font-weight: bold;
+    font-size: 1rem;
+  font-weight: bold;
+  display: inline-block;
+  transition: .3s;
+  }
+  .btn:hover {
+  transform: rotate(-10deg);
+  }
+  
+  /* ここまで問い合わせフォーム */
+
+  footer p {
+    padding: 10px auto;
+    text-align: center;
+  }
+
+  @media screen and (max-width:480px){
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    .top-pc {
+      background-size: auto 99%;
+      padding-top: 30px;
+    }
+
+    #nav-pc {
+      display: none;
+    }
+
+    .about-content {
+      display: block;
+    }
+
+    #news h2 {
+      margin-bottom: 20px;
+    }
+    
+    #searchform {
+      margin: 0 auto 0 auto;
+    }
+
+    #work {
+      display: block;
+      text-align: center;
+    }
+    #work p {
+      margin-bottom: 50px;
+      text-align: center;
+      margin-right: 50px;
+    }
+
+    /* 問い合わせ */
+
+  }
+    .contact-home {
+      margin-right: 20px;
+    }
+    
+    .contact h4 {
+      margin: 10px 20px;
+    }
+  
+    .contact {
+      display: block;
+    }
+  
+    #name {
+      margin: 20px 0px 0 0px;
+    }
+  
+    #email {
+      margin: 20px 0px 0 0px;
+    }
+  
+    #text {
+      margin: 20px 0px 0 0px;
+    }
